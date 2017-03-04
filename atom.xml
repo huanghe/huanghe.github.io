@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>hahaxixi blog</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://blog.hahaxixi.cc/"/>
+  <updated>2017-03-04T16:00:55.000Z</updated>
+  <id>http://blog.hahaxixi.cc/</id>
+  
+  <author>
+    <name>hahaxixi</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://blog.hahaxixi.cc/2017/03/03/hello-world/"/>
+    <id>http://blog.hahaxixi.cc/2017/03/03/hello-world/</id>
+    <published>2017-03-03T01:38:48.000Z</published>
+    <updated>2017-03-04T16:00:55.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
