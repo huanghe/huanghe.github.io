@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hahaxixi.cc/"/>
-  <updated>2017-03-07T14:07:31.000Z</updated>
+  <updated>2017-03-07T15:46:13.000Z</updated>
   <id>http://blog.hahaxixi.cc/</id>
   
   <author>
@@ -16,13 +16,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>用户mvc从多层模型开始</title>
+    <title>MVC从多层模型开始</title>
     <link href="http://blog.hahaxixi.cc/2017/03/03/MVC01/"/>
     <id>http://blog.hahaxixi.cc/2017/03/03/MVC01/</id>
     <published>2017-03-03T01:38:48.000Z</published>
-    <updated>2017-03-07T14:07:31.000Z</updated>
+    <updated>2017-03-07T15:46:13.000Z</updated>
     
-    <content type="html"><![CDATA[<p>如果你的控制层比模型层更大，产品同学找你改个功能很困难的时候，你可以考虑用多层模型解耦你的业务。</p>
+    <content type="html"><![CDATA[<p>如果你的控制层比模型层更大，产品同学找你改个功能很费劲，一改就来bug的时候，你可以考虑用多层模型解耦你的业务。</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
@@ -35,8 +35,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;如果你的控制层比模型层更大，产品同学找你改个功能很困难的时候，你可以考虑用多层模型解耦你的业务。&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;
+      &lt;p&gt;如果你的控制层比模型层更大，产品同学找你改个功能很费劲，一改就来bug的时候，你可以考虑用多层模型解耦你的业务。&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick 
     
     </summary>
     
