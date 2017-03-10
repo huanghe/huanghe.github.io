@@ -62,8 +62,11 @@
     <div class="entry">
       
         <p>如果你的控制层比模型层更大，产品同学找你改个功能很费劲，一改就来bug的时候，你可以考虑用多层模型解耦你的业务。</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="MVC功能概述"><a href="#MVC功能概述" class="headerlink" title="MVC功能概述"></a>MVC功能概述</h3><ul>
+<li>Models代表数据、<strong>业务逻辑</strong>，以及数据校验规则。</li>
+<li>Controllers用来管理模型和视图之间的通信，处理动作和请求。</li>
+<li>Views包含用户界面元素，如文本、图片和表单，当然，现在流行前后端分离的架构中，这一层可能从后端同学那里剥离出去了。</li>
+</ul>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
