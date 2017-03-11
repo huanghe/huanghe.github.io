@@ -62,11 +62,12 @@
     <div class="entry">
       
         <p>如果你的控制层比模型层更大，产品同学找你改个功能很费劲，一改就来bug的时候，你可以考虑用多层模型解耦你的业务。</p>
-<h3 id="MVC功能概述"><a href="#MVC功能概述" class="headerlink" title="MVC功能概述"></a>MVC功能概述</h3><ul>
-<li>Models代表数据、<strong>业务逻辑</strong>，以及数据校验规则。</li>
-<li>Controllers用来管理模型和视图之间的通信，处理动作和请求。</li>
+<h3 id="MVC功能定位"><a href="#MVC功能定位" class="headerlink" title="MVC功能定位"></a>MVC功能定位</h3><ol>
+<li>模型(Model)应当负责管理几乎所有涉及数据的事情，包含数据、<strong>业务逻辑</strong>，以及数据校验规则。</li>
+<li>控制器(Controller)用来解释请求数据，使用相应的模型，并渲染相应的响应或视图，可以被看作是模型和视图之间的中间人处理动作和请求。</li>
 <li>Views包含用户界面元素，如文本、图片和表单，当然，现在流行前后端分离的架构中，这一层可能从后端同学那里剥离出去了。</li>
-</ul>
+</ol>
+<p>数据和业务逻辑放在模型层，控制器只是个中间人的角色，这样就保持了瘦控制器和胖模型。但是实际开发中，很多同学会将数据的校验和业务逻辑放在控制器层，变成了胖控制器，瘦模型。</p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
