@@ -67,7 +67,7 @@
 <li>控制器(Controller)用来解释请求数据，使用相应的模型，并渲染相应的响应或视图，可以被看作是模型和视图之间的中间人处理动作和请求。</li>
 <li>Views包含用户界面元素，如文本、图片和表单，当然，现在流行前后端分离的架构中，这一层可能从后端同学那里剥离出去了。</li>
 </ol>
-<p>数据和业务逻辑放在模型层，控制器只是个中间人的角色，这样就保持了瘦控制器和胖模型。但是实际开发中，很多同学会将数据的校验和业务逻辑放在控制器层，变成了胖控制器，瘦模型。</p>
+<p>数据和业务逻辑放在模型层，控制器只是个中间人的角色，这样就保持了瘦控制器和胖模型。但是实际开发中，很多同学会将数据的校验和业务逻辑放在控制器层，变成了胖控制器，瘦模型，控制层的代码没有复用性可言，重构又要开始了。所以如果仅仅把模型当作数据库表的对象关系映射，一张数据库表对应一个模型是远远不够快乐的玩耍的。</p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
