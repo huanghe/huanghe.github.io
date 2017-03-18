@@ -68,13 +68,17 @@
 <li>控制器(Controller)用来解释请求数据，使用相应的模型，并渲染相应的响应或视图，可以被看作是模型和视图之间的中间人处理动作和请求。</li>
 <li>Views包含用户界面元素，如文本、图片和表单，当然，现在流行前后端分离的架构中，这一层可能从后端同学那里剥离出去了。</li>
 </ol>
-<p>数据和业务逻辑放在模型层，控制器只是个中间人的角色，这样就保持了瘦控制器和胖模型。但是实际开发中，很多同学会将数据的校验和业务逻辑放在控制器层，变成了胖控制器，瘦模型，控制层的代码没有复用性可言，重构又要开始了。所以如果仅仅把模型当作数据库表的映射，一张数据库表对应一个模型是远远不够快乐的玩耍的。</p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<p>数据和业务逻辑放在模型层，控制器只是个中间人的角色，这样就保持了瘦控制器和胖模型。但是实际开发中，很多同学会将数据的校验和业务逻辑放在控制器层，变成了胖控制器，瘦模型，控制层的代码没有复用性可言，产品需求一改，重构又要开始了。所以如果仅仅把模型当作数据库表的映射，一张数据库表对应一个模型是远远不够的。</p>
+<h3 id="多层模型"><a href="#多层模型" class="headerlink" title="多层模型"></a>多层模型</h3><ol>
+<li>多层模型的本质原因是由于数据库和业务逻辑之间的差异性，比如关系型数据库中的数据都是存在表中，以一行行数据的形式进行存取的，而程序运行却是一个个对象，实现数据的过滤，数据的处理等业务逻辑，一个对象的数据一般都对应了多张表。如果把业务处理逻辑和数据存取逻辑完全混杂在一块，甚至比把业务逻辑放在控制器里更难维护。</li>
+<li>模型的层级：<ul>
+<li>一层模型应该是每个模型映射一张数据表，比如一篇文章对应一个文章表，文章分类对应一个分类表，这里就是两个模型，想必大多数同学都是这样设计模型的，这里就不多说了,我这里把这个成为A层模型。</li>
+<li>一些可以复用的业务逻辑块可以封装成模型，供控制器或者模型调用，比如页面的搜索功能，可以继承最相关的A层模型，然后独立成模型，供不同页面都要这个查询功能的控制器调用。</li>
+<li>每个表单或者API需要独立的模型，这里面包含了这个表单或者API的数据校验和不可复用的业务逻辑，这个比较关键，也是本文的重点。比如注册表单或者API，需要独立的注册模型，这里面就包含了账号，验证码各种的校验，校验通过之后注册的逻辑，注册之后用户表需要添加一条数据，用户详情表也需要添加一条数据，这就对应了2个A模型，这些都只是登陆表单特有的逻辑，独立出来做成单独的模型，这样业务修改需求主要修改这里，简单清晰。</li>
+</ul>
+</li>
+</ol>
+<h3 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h3><p>随着业务的发展，仅仅MVC这样的分层划分已经不能满足需求了，但是无非是抽象出更多的层级，这已经超过本文的讨论范围了。</p>
 
       
     </div>
