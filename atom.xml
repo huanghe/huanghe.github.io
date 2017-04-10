@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hahaxixi.cc/"/>
-  <updated>2017-04-10T07:04:26.000Z</updated>
+  <updated>2017-04-10T08:22:44.000Z</updated>
   <id>http://blog.hahaxixi.cc/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>什么是设计模式</title>
+    <title>从设计模式到代码架构</title>
     <link href="http://blog.hahaxixi.cc/2017/03/30/Design_Patterns/"/>
     <id>http://blog.hahaxixi.cc/2017/03/30/Design_Patterns/</id>
     <published>2017-03-30T15:27:49.000Z</published>
-    <updated>2017-04-10T07:04:26.000Z</updated>
+    <updated>2017-04-10T08:22:44.000Z</updated>
     
     <content type="html"><![CDATA[<p>设计模式，这是我听过最糟糕的翻译，这么重要的东西，让一个高高在上的名字给坑了，尤其是php，python,nodejs这些脚本语言的开发人员可能因为这个名字就忽视了设计模式的重要性。对于这个问题，我觉得有三个原因：</p>
 <ol>
