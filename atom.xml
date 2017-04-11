@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hahaxixi.cc/"/>
-  <updated>2017-04-11T03:24:28.000Z</updated>
+  <updated>2017-04-11T03:56:57.000Z</updated>
   <id>http://blog.hahaxixi.cc/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://blog.hahaxixi.cc/2017/03/30/Design_Patterns/"/>
     <id>http://blog.hahaxixi.cc/2017/03/30/Design_Patterns/</id>
     <published>2017-03-30T15:27:49.000Z</published>
-    <updated>2017-04-11T03:24:28.000Z</updated>
+    <updated>2017-04-11T03:56:57.000Z</updated>
     
-    <content type="html"><![CDATA[<p>设计模式，这是我听过最糟糕的翻译，这个名字对于程序员来说有点高高在上，难以理解，尤其是php，python，nodejs这些脚本语言的开发人员可能因为这个名字就忽视了设计模式的重要性。除了名字以外，从更深层次，更具体来说，我觉得有三个原因：</p>
+    <content type="html"><![CDATA[<p>设计模式，这是我听过最糟糕的翻译，这个名字对于程序员来说有点高高在上，难以理解，尤其是php，python，nodejs这些脚本语言的开发人员可能因为这个名字就忽视了设计模式的重要性。当然，除了名字以外，从更深层次，更具体来说，我觉得有三个原因：</p>
 <ol>
 <li>不用设计模式也可以完成工作，很多时候反而更简单快速；</li>
 <li>软件的世界快速迭代，很多设计模式有些过时了；</li>
@@ -36,9 +36,9 @@
     
     <summary type="html">
     
-      &lt;p&gt;设计模式，这是我听过最糟糕的翻译，这个名字对于程序员来说有点高高在上，难以理解，尤其是php，python，nodejs这些脚本语言的开发人员可能因为这个名字就忽视了设计模式的重要性。除了名字以外，从更深层次，更具体来说，我觉得有三个原因：&lt;/p&gt;
+      &lt;p&gt;设计模式，这是我听过最糟糕的翻译，这个名字对于程序员来说有点高高在上，难以理解，尤其是php，python，nodejs这些脚本语言的开发人员可能因为这个名字就忽视了设计模式的重要性。当然，除了名字以外，从更深层次，更具体来说，我觉得有三个原因：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;不用设
+&lt;li&gt;
     
     </summary>
     
