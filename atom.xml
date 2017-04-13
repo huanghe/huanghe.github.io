@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.hahaxixi.cc/"/>
-  <updated>2017-04-11T10:43:18.000Z</updated>
+  <updated>2017-04-13T08:08:49.000Z</updated>
   <id>http://blog.hahaxixi.cc/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JUST DO IT</title>
+    <link href="http://blog.hahaxixi.cc/2017/04/13/it/"/>
+    <id>http://blog.hahaxixi.cc/2017/04/13/it/</id>
+    <published>2017-04-13T08:02:53.000Z</published>
+    <updated>2017-04-13T08:08:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果你有些想法，有没有去做比最后的结果更重要，也就是去实践这种想法比成功与否更重要，那这种想法就是值得去做的，你是幸福的。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果你有些想法，有没有去做比最后的结果更重要，也就是去实践这种想法比成功与否更重要，那这种想法就是值得去做的，你是幸福的。&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>从设计模式到代码架构</title>
