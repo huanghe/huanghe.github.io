@@ -63,7 +63,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-12-27T01:46:46.000Z"><a href="/2017/12/27/AI-API/">2017-12-27</a></time>
+        <time datetime="2017-12-27T08:46:46.000Z"><a href="/2017/12/27/AI-API/">2017-12-27</a></time>
       
       
   
@@ -73,7 +73,79 @@
     </header>
     <div class="entry">
       
-        
+        <p>##说明</p>
+<p>####方法说明：<br>1.select():选择识别的方法，参数为url的路由<br>2.where():过滤条件，参数为请求的参数,同官方文档一致<br>3.get():触发API请求，返回结果</p>
+<p>##百度</p>
+<p>####代码示例：<br> 一行代码人脸识别，image参数无需base64：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::Baidu($config)-&gt;face-&gt;select(<span class="string">'detect'</span>)-&gt;where([<span class="string">'image'</span> =&gt; file_get_contents(<span class="keyword">__DIR__</span> . <span class="string">'/file/face_detect.jpeg'</span>), <span class="string">'id_card_side'</span> =&gt; <span class="string">'front'</span>])-&gt;get();</div></pre></td></tr></table></figure></p>
+<p>####方法:<br>1.人脸识别（face）</p>
+<pre><code>* detect:人脸检测
+* match:人脸比对
+* verify:人脸认证
+* identify:人脸识别
+* multi-identify:M:N 识别
+* add:人脸库添加
+* update:人脸库更新
+* delete:人脸删除
+* get:用户信息查询
+* getlist:组列表查询
+* getusers:组内用户列表查询
+* adduser:组间复制用户
+* deleteuser:组内删除用户
+</code></pre><p>2.文字识别(ocr)</p>
+<pre><code>* idcard:身份证
+* bankcard:银行卡
+* general:通用文字识别（含位置信息版）
+* general_basic:通用文字识别
+* webimage:网络图片文字识别
+* general_enhanced:通用文字识别
+* driving_license:驾驶证识别
+* vehicle_license:行驶证识别
+* license_plate:车牌识别
+* accurate:通用文字识别（含位置高精度版）
+* accurate_basic:通用文字识别（高精度版）
+* receipt:通用票据识别
+* business_license:营业执照识别
+</code></pre><p>##腾讯优图</p>
+<p>####代码示例：<br> 一行代码人脸检测，where()方法可以传入url或者image<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::Youtu($config)-&gt;face-&gt;select(<span class="string">'detectface'</span>)-&gt;where([<span class="string">'image'</span> =&gt; <span class="keyword">__DIR__</span> . <span class="string">'/../../file/face_01.jpg'</span>, <span class="string">'mode'</span> =&gt; <span class="number">1</span>])-&gt;get();</div></pre></td></tr></table></figure></p>
+<p>####方法:<br>1.人脸识别（face）</p>
+<pre><code>* detectface:人脸检测
+* faceshape:五官定位
+* identify:人脸识别
+</code></pre><p>2.文字识别(ocr)</p>
+<pre><code>* generalocr:通用
+* idcardocr:身份证
+* bcocr:名片
+* bizlicenseocr:营业执照
+* creditcardocr:银行卡
+* plateocr:车牌识别
+* driverlicenseocr:驾驶证(1)行驶证(0)识别
+</code></pre><p>##FACE++</p>
+<p>####代码示例：<br> 一行代码人脸识别，where()方法可以传入image_url,image_file,image_base64：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::FacePlus(<span class="keyword">$this</span>-&gt;config)-&gt;face-&gt;select(<span class="string">'detect'</span>)-&gt;where([<span class="string">'image_file'</span> =&gt; <span class="keyword">__DIR__</span> . <span class="string">'/../../file/face_01.jpg'</span>, <span class="string">'return_attributes'</span> =&gt; <span class="string">'skinstatus'</span>])-&gt;get();</div></pre></td></tr></table></figure></p>
+<p>####方法:<br>1.人脸识别（face）</p>
+<pre><code>* detect:人脸检测和人脸分析
+* compare:两个人脸进行比对
+* search:在一个已有的 FaceSet 中找出与目标人脸最相似的一张或多张人脸
+* create:创建一个人脸的集合 FaceSet
+* addface:为一个已经创建的 FaceSet 添加人脸标识 face_token
+* removeface:移除一个FaceSet中的某些或者全部face_token
+* update:更新一个人脸集合的属性
+* getdetail:获取一个 FaceSet 的所有信息
+* delete:删除一个人脸集合
+* getfacesets:获取某一 API Key 下的 FaceSet 列表及其 faceset_token、outer_id、display_name 和 tags 等信息
+</code></pre><p>2.人体识别（body）</p>
+<pre><code>* detect:人体检测和人体属性分析
+* segment:识别传入图片中人体的完整轮廓，进行人形抠像
+* gesture:手势识别
+</code></pre><p>3.证件识别(ocr)</p>
+<pre><code>* ocridcard:身份证
+* ocrdriverlicense:驾驶证
+* ocrvehiclelicense:行驶证
+* ocrbankcard:银行卡
+</code></pre><p>4.图像识别(image)</p>
+<pre><code>* detectsceneandobject:图片分析，识别图片场景和图片主体    * recognizetext:图片分析，找出图片中出现的文字信息
+* general:通用文字识别（含位置信息版）
+* mergeface:人脸融合
+</code></pre>
       
     </div>
     <footer>
