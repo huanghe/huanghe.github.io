@@ -67,17 +67,15 @@
       
       
   
-    <h1 class="title"><a href="/2017/12/27/AI-API/">AI-API</a></h1>
+    <h1 class="title"><a href="/2017/12/27/AI-API/">AI开放平台集成API</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>##说明</p>
-<p>####方法说明：<br>1.select():选择识别的方法，参数为url的路由<br>2.where():过滤条件，参数为请求的参数,同官方文档一致<br>3.get():触发API请求，返回结果</p>
-<p>##百度</p>
-<p>####代码示例：<br> 一行代码人脸识别，image参数无需base64：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::Baidu($config)-&gt;face-&gt;select(<span class="string">'detect'</span>)-&gt;where([<span class="string">'image'</span> =&gt; file_get_contents(<span class="keyword">__DIR__</span> . <span class="string">'/file/face_detect.jpeg'</span>), <span class="string">'id_card_side'</span> =&gt; <span class="string">'front'</span>])-&gt;get();</div></pre></td></tr></table></figure></p>
-<p>####方法:<br>1.人脸识别（face）</p>
+        <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><h4 id="方法说明："><a href="#方法说明：" class="headerlink" title="方法说明："></a>方法说明：</h4><p>1.select():选择识别的方法，参数为url的路由<br>2.where():过滤条件，参数为请求的参数,同官方文档一致<br>3.get():触发API请求，返回结果</p>
+<h2 id="百度"><a href="#百度" class="headerlink" title="百度"></a>百度</h2><h4 id="代码示例："><a href="#代码示例：" class="headerlink" title="代码示例："></a>代码示例：</h4><p> 一行代码人脸识别，image参数无需base64：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::Baidu($config)-&gt;face-&gt;select(<span class="string">'detect'</span>)-&gt;where([<span class="string">'image'</span> =&gt; file_get_contents(<span class="keyword">__DIR__</span> . <span class="string">'/file/face_detect.jpeg'</span>), <span class="string">'id_card_side'</span> =&gt; <span class="string">'front'</span>])-&gt;get();</div></pre></td></tr></table></figure></p>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法:"></a>方法:</h4><p>1.人脸识别（face）</p>
 <pre><code>* detect:人脸检测
 * match:人脸比对
 * verify:人脸认证
@@ -105,9 +103,8 @@
 * accurate_basic:通用文字识别（高精度版）
 * receipt:通用票据识别
 * business_license:营业执照识别
-</code></pre><p>##腾讯优图</p>
-<p>####代码示例：<br> 一行代码人脸检测，where()方法可以传入url或者image<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::Youtu($config)-&gt;face-&gt;select(<span class="string">'detectface'</span>)-&gt;where([<span class="string">'image'</span> =&gt; <span class="keyword">__DIR__</span> . <span class="string">'/../../file/face_01.jpg'</span>, <span class="string">'mode'</span> =&gt; <span class="number">1</span>])-&gt;get();</div></pre></td></tr></table></figure></p>
-<p>####方法:<br>1.人脸识别（face）</p>
+</code></pre><h2 id="腾讯优图"><a href="#腾讯优图" class="headerlink" title="腾讯优图"></a>腾讯优图</h2><h4 id="代码示例：-1"><a href="#代码示例：-1" class="headerlink" title="代码示例："></a>代码示例：</h4><p> 一行代码人脸检测，where()方法可以传入url或者image<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::Youtu($config)-&gt;face-&gt;select(<span class="string">'detectface'</span>)-&gt;where([<span class="string">'image'</span> =&gt; <span class="keyword">__DIR__</span> . <span class="string">'/../../file/face_01.jpg'</span>, <span class="string">'mode'</span> =&gt; <span class="number">1</span>])-&gt;get();</div></pre></td></tr></table></figure></p>
+<h4 id="方法-1"><a href="#方法-1" class="headerlink" title="方法:"></a>方法:</h4><p>1.人脸识别（face）</p>
 <pre><code>* detectface:人脸检测
 * faceshape:五官定位
 * identify:人脸识别
@@ -119,9 +116,8 @@
 * creditcardocr:银行卡
 * plateocr:车牌识别
 * driverlicenseocr:驾驶证(1)行驶证(0)识别
-</code></pre><p>##FACE++</p>
-<p>####代码示例：<br> 一行代码人脸识别，where()方法可以传入image_url,image_file,image_base64：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::FacePlus(<span class="keyword">$this</span>-&gt;config)-&gt;face-&gt;select(<span class="string">'detect'</span>)-&gt;where([<span class="string">'image_file'</span> =&gt; <span class="keyword">__DIR__</span> . <span class="string">'/../../file/face_01.jpg'</span>, <span class="string">'return_attributes'</span> =&gt; <span class="string">'skinstatus'</span>])-&gt;get();</div></pre></td></tr></table></figure></p>
-<p>####方法:<br>1.人脸识别（face）</p>
+</code></pre><h2 id="FACE"><a href="#FACE" class="headerlink" title="FACE++"></a>FACE++</h2><h4 id="代码示例：-2"><a href="#代码示例：-2" class="headerlink" title="代码示例："></a>代码示例：</h4><p> 一行代码人脸识别，where()方法可以传入image_url,image_file,image_base64：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::FacePlus(<span class="keyword">$this</span>-&gt;config)-&gt;face-&gt;select(<span class="string">'detect'</span>)-&gt;where([<span class="string">'image_file'</span> =&gt; <span class="keyword">__DIR__</span> . <span class="string">'/../../file/face_01.jpg'</span>, <span class="string">'return_attributes'</span> =&gt; <span class="string">'skinstatus'</span>])-&gt;get();</div></pre></td></tr></table></figure></p>
+<h4 id="方法-2"><a href="#方法-2" class="headerlink" title="方法:"></a>方法:</h4><p>1.人脸识别（face）</p>
 <pre><code>* detect:人脸检测和人脸分析
 * compare:两个人脸进行比对
 * search:在一个已有的 FaceSet 中找出与目标人脸最相似的一张或多张人脸
