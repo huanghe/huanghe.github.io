@@ -82,6 +82,7 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::Baidu(<span class="keyword">$this</span>-&gt;config)-&gt;ocr-&gt;select(<span class="string">'general_basic'</span>)-&gt;where([<span class="string">'url'</span> =&gt; <span class="string">'http://aip.bdstatic.com/portal/dist/1513863228374/ai_images/technology/ocr-general/general/demo-card-2.jpg'</span>])-&gt;get();</div></pre></td></tr></table></figure>
 </li>
 </ol>
+<h4 id="官方文档："><a href="#官方文档：" class="headerlink" title="官方文档："></a>官方文档：</h4><p><a href="http://ai.baidu.com/docs#/Begin/top" target="_blank" rel="noopener">百度AI开放平台</a></p>
 <h4 id="方法"><a href="#方法" class="headerlink" title="方法:"></a>方法:</h4><p>1.人脸识别（<code>face</code>）</p>
 <pre><code>* detect:人脸检测
 * match:人脸比对
@@ -118,6 +119,7 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::Youtu(<span class="keyword">$this</span>-&gt;config)-&gt;ocr-&gt;select(<span class="string">'generalocr'</span>)-&gt;where([<span class="string">'url'</span> =&gt; <span class="string">'http://open.youtu.qq.com/app/img/experience/char_general/ocr_common07.jpg'</span>])-&gt;get();</div></pre></td></tr></table></figure>
 </li>
 </ol>
+<h4 id="官方文档：-1"><a href="#官方文档：-1" class="headerlink" title="官方文档："></a>官方文档：</h4><p><a href="https://open.youtu.qq.com/#/develop/api-summary" target="_blank" rel="noopener">腾讯AI开放平台</a></p>
 <h4 id="方法-1"><a href="#方法-1" class="headerlink" title="方法:"></a>方法:</h4><p>1.人脸识别（<code>face</code>）</p>
 <pre><code>* detectface:人脸检测
 * faceshape:五官定位
@@ -144,6 +146,7 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::FacePlus(<span class="keyword">$this</span>-&gt;config)-&gt;image-&gt;select(<span class="string">'detectsceneandobject'</span>)-&gt;where([<span class="string">'image_base64'</span> =&gt; base64_encode(file_get_contents(<span class="keyword">__DIR__</span> . <span class="string">'/../../file/cup.jpg'</span>))])-&gt;get();</div></pre></td></tr></table></figure>
 </li>
 </ol>
+<h4 id="官方文档：-2"><a href="#官方文档：-2" class="headerlink" title="官方文档："></a>官方文档：</h4><p><a href="https://console.faceplusplus.com.cn/documents/4887579" target="_blank" rel="noopener">FACE++AI开放平台</a></p>
 <h4 id="方法-2"><a href="#方法-2" class="headerlink" title="方法:"></a>方法:</h4><p>1.人脸识别（<code>face</code>）</p>
 <pre><code>* detect:人脸检测和人脸分析
 * compare:两个人脸进行比对
@@ -165,7 +168,8 @@
 * ocrvehiclelicense:行驶证
 * ocrbankcard:银行卡
 </code></pre><p>4.图像识别(<code>image</code>)</p>
-<pre><code>* detectsceneandobject:图片分析，识别图片场景和图片主体    * recognizetext:图片分析，找出图片中出现的文字信息
+<pre><code>* detectsceneandobject:图片分析，识别图片场景和图片主体
+* recognizetext:图片分析，找出图片中出现的文字信息
 * general:通用文字识别（含位置信息版）
 * mergeface:人脸融合
 </code></pre>
