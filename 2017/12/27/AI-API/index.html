@@ -117,6 +117,9 @@
 <li><p>一行代码通用文字检测(<code>where()</code>方法可以传入<code>url</code>或者<code>image</code>)</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::Youtu(<span class="keyword">$this</span>-&gt;config)-&gt;ocr-&gt;select(<span class="string">'generalocr'</span>)-&gt;where([<span class="string">'url'</span> =&gt; <span class="string">'http://open.youtu.qq.com/app/img/experience/char_general/ocr_common07.jpg'</span>])-&gt;get();</div></pre></td></tr></table></figure>
 </li>
+<li><p>图像处理(默认调用人脸融合API)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$opData = [[<span class="string">'cmd'</span> =&gt; <span class="string">'doFaceMerge'</span>, <span class="string">'params'</span> =&gt; [<span class="string">'model_id'</span> =&gt; <span class="string">'cf_wzry_zhugeImage'</span>]]];</div><div class="line"><span class="comment">//$request = ['img_data' =&gt; __DIR__ . '/../../file/face_01.jpg', 'rsp_img_type' =&gt; "url", 'opdata' =&gt; $opdata];</span></div><div class="line">$params = [<span class="string">'img_data'</span> =&gt; <span class="string">'http://open.youtu.qq.com/app/img/experience/face_img/face_04.jpg'</span>, <span class="string">'rsp_img_type'</span> =&gt; <span class="string">"url"</span>, <span class="string">'opdata'</span> =&gt; $opData];</div><div class="line">$result = Entry::Youtu($config)-&gt;imageProcess-&gt;select()-&gt;where($params)-&gt;get();<span class="comment">//人脸融合</span></div></pre></td></tr></table></figure>
+</li>
 </ol>
 <h4 id="官方文档：-1"><a href="#官方文档：-1" class="headerlink" title="官方文档："></a>官方文档：</h4><p><a href="https://open.youtu.qq.com/#/develop/api-summary" target="_blank" rel="noopener">腾讯AI开放平台</a></p>
 <h4 id="方法-1"><a href="#方法-1" class="headerlink" title="方法:"></a>方法:</h4><p>1.人脸识别（<code>face</code>）</p>
@@ -131,6 +134,8 @@
 * creditcardocr:银行卡
 * plateocr:车牌识别
 * driverlicenseocr:驾驶证(1)行驶证(0)识别
+</code></pre><p>3.图像处理(<code>imageProcess</code>)</p>
+<pre><code>* pitu_open_access_for_youtu.fcg:人脸融合，默认参数，可以不填
 </code></pre><h2 id="FACE"><a href="#FACE" class="headerlink" title="FACE++"></a>FACE++</h2><h4 id="代码示例：-2"><a href="#代码示例：-2" class="headerlink" title="代码示例："></a>代码示例：</h4><ol>
 <li><p>一行代码人脸识别(<code>where()</code>方法可以传入<code>image_url</code>,<code>image_file</code>,<code>image_base64</code>)：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::FacePlus(<span class="keyword">$this</span>-&gt;config)-&gt;face-&gt;select(<span class="string">'detect'</span>)-&gt;where([<span class="string">'image_file'</span> =&gt; <span class="keyword">__DIR__</span> . <span class="string">'/../../file/face_01.jpg'</span>, <span class="string">'return_attributes'</span> =&gt; <span class="string">'skinstatus'</span>])-&gt;get();</div></pre></td></tr></table></figure>
