@@ -6,7 +6,7 @@
   <title>hahaxixi blog</title>
   <meta name="author" content="hahaxixi">
   
-  <meta name="description" content="php yii2">
+  <meta name="description" content="php laravel">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -111,6 +111,10 @@
 * accurate_basic:通用文字识别（高精度版）
 * receipt:通用票据识别
 * business_license:营业执照识别
+</code></pre><p>3.人体识别(<code>body</code>)</p>
+<pre><code>* analysis:人体关键点识别
+* attr:人体属性识别
+* num:人流量统计
 </code></pre><h2 id="腾讯优图"><a href="#腾讯优图" class="headerlink" title="腾讯优图"></a>腾讯优图</h2><h4 id="代码示例：-1"><a href="#代码示例：-1" class="headerlink" title="代码示例："></a>代码示例：</h4><ol>
 <li><p>一行代码人脸检测(<code>where()</code>方法可以传入<code>url</code>或者<code>image</code>)</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::Youtu($config)-&gt;face-&gt;select(<span class="string">'detectface'</span>)-&gt;where([<span class="string">'image'</span> =&gt; <span class="keyword">__DIR__</span> . <span class="string">'/../../file/face_01.jpg'</span>, <span class="string">'mode'</span> =&gt; <span class="number">1</span>])-&gt;get();</div></pre></td></tr></table></figure>
