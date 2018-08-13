@@ -74,11 +74,17 @@
       
         <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><h4 id="方法说明："><a href="#方法说明：" class="headerlink" title="方法说明："></a>方法说明：</h4><p>1.<code>select()</code>:选择识别的方法，参数为url的路由<br>2.<code>where()</code>:过滤条件，参数为请求的参数,同官方文档一致<br>3.<code>get()</code>:触发API请求，返回结果</p>
 <h2 id="百度"><a href="#百度" class="headerlink" title="百度"></a>百度</h2><h4 id="代码示例："><a href="#代码示例：" class="headerlink" title="代码示例："></a>代码示例：</h4><ol>
-<li><p>一行代码人脸识别(<code>image</code>参数无需<code>base64</code>)：</p>
+<li><p>人脸识别(<code>image</code>参数无需<code>base64</code>)：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::Baidu($config)-&gt;face-&gt;select(<span class="string">'detect'</span>)-&gt;where([<span class="string">'image'</span> =&gt; file_get_contents(<span class="keyword">__DIR__</span> . <span class="string">'/file/face_detect.jpeg'</span>), <span class="string">'id_card_side'</span> =&gt; <span class="string">'front'</span>])-&gt;get();</div></pre></td></tr></table></figure>
 </li>
-<li><p>一行代码通用文字识别(<code>image</code>参数无需<code>base64</code>)：</p>
+<li><p>通用文字识别(<code>image</code>参数无需<code>base64</code>)：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::Baidu(<span class="keyword">$this</span>-&gt;config)-&gt;ocr-&gt;select(<span class="string">'general_basic'</span>)-&gt;where([<span class="string">'url'</span> =&gt; <span class="string">'http://aip.bdstatic.com/portal/dist/1513863228374/ai_images/technology/ocr-general/general/demo-card-2.jpg'</span>])-&gt;get();</div></pre></td></tr></table></figure>
+</li>
+<li><p>人体关键点识别(<code>image</code>参数无需<code>base64</code>)：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::Baidu($config)-&gt;body-&gt;select(<span class="string">'analysis'</span>)-&gt;where([<span class="string">'image'</span> =&gt; file_get_contents(<span class="keyword">__DIR__</span> . <span class="string">'/../../file/body1.jpg'</span>)])-&gt;get();</div></pre></td></tr></table></figure>
+</li>
+<li><p>商品检索(<code>image</code>参数无需<code>base64</code>)：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::Baidu(<span class="keyword">$this</span>-&gt;config)-&gt;imageSearch-&gt;select(<span class="string">'v1/realtime_search/product/search'</span>)-&gt;where([<span class="string">'image'</span> =&gt; file_get_contents(<span class="keyword">__DIR__</span> . <span class="string">'/../../file/cup.jpg'</span>)])-&gt;get();</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <h4 id="官方文档："><a href="#官方文档：" class="headerlink" title="官方文档："></a>官方文档：</h4><p><a href="http://ai.baidu.com/docs#/Begin/top" target="_blank" rel="noopener">百度AI开放平台</a></p>
@@ -114,11 +120,24 @@
 <pre><code>* analysis:人体关键点识别
 * attr:人体属性识别
 * num:人流量统计
+</code></pre><p>4.图片搜索(<code>imageSearch</code>)</p>
+<pre><code>* realtime_search/same_hq/add:相同图检索—入库
+* realtime_search/same_hq/search:相同图检索—检索
+* realtime_search/same_hq/delete:相同图检索—删除
+* realtime_search/same_hq/update:相同图检索—更新
+* v1/realtime_search/similar/add:相似图检索—入库
+* v1/realtime_search/similar/search:相似图检索—检索
+* v1/realtime_search/similar/delete:相似图检索—删除
+* v1/realtime_search/similar/update:相似图检索—更新
+* v1/realtime_search/product/add:商品—入库
+* v1/realtime_search/product/search:商品—检索
+* v1/realtime_search/product/delete:商品—删除
+* v1/realtime_search/product/update:商品—更新
 </code></pre><h2 id="腾讯优图"><a href="#腾讯优图" class="headerlink" title="腾讯优图"></a>腾讯优图</h2><h4 id="代码示例：-1"><a href="#代码示例：-1" class="headerlink" title="代码示例："></a>代码示例：</h4><ol>
-<li><p>一行代码人脸检测(<code>where()</code>方法可以传入<code>url</code>或者<code>image</code>)</p>
+<li><p>人脸检测(<code>where()</code>方法可以传入<code>url</code>或者<code>image</code>)</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::Youtu($config)-&gt;face-&gt;select(<span class="string">'detectface'</span>)-&gt;where([<span class="string">'image'</span> =&gt; <span class="keyword">__DIR__</span> . <span class="string">'/../../file/face_01.jpg'</span>, <span class="string">'mode'</span> =&gt; <span class="number">1</span>])-&gt;get();</div></pre></td></tr></table></figure>
 </li>
-<li><p>一行代码通用文字检测(<code>where()</code>方法可以传入<code>url</code>或者<code>image</code>)</p>
+<li><p>通用文字检测(<code>where()</code>方法可以传入<code>url</code>或者<code>image</code>)</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::Youtu(<span class="keyword">$this</span>-&gt;config)-&gt;ocr-&gt;select(<span class="string">'generalocr'</span>)-&gt;where([<span class="string">'url'</span> =&gt; <span class="string">'http://open.youtu.qq.com/app/img/experience/char_general/ocr_common07.jpg'</span>])-&gt;get();</div></pre></td></tr></table></figure>
 </li>
 <li><p>图像处理(默认调用人脸融合API)</p>
@@ -141,16 +160,16 @@
 </code></pre><p>3.图像处理(<code>imageProcess</code>)</p>
 <pre><code>* pitu_open_access_for_youtu.fcg:人脸融合，默认参数，可以不填
 </code></pre><h2 id="FACE"><a href="#FACE" class="headerlink" title="FACE++"></a>FACE++</h2><h4 id="代码示例：-2"><a href="#代码示例：-2" class="headerlink" title="代码示例："></a>代码示例：</h4><ol>
-<li><p>一行代码人脸识别(<code>where()</code>方法可以传入<code>image_url</code>,<code>image_file</code>,<code>image_base64</code>)：</p>
+<li><p>人脸识别(<code>where()</code>方法可以传入<code>image_url</code>,<code>image_file</code>,<code>image_base64</code>)：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::FacePlus(<span class="keyword">$this</span>-&gt;config)-&gt;face-&gt;select(<span class="string">'detect'</span>)-&gt;where([<span class="string">'image_file'</span> =&gt; <span class="keyword">__DIR__</span> . <span class="string">'/../../file/face_01.jpg'</span>, <span class="string">'return_attributes'</span> =&gt; <span class="string">'skinstatus'</span>])-&gt;get();</div></pre></td></tr></table></figure>
 </li>
-<li><p>一行代码手势识别(<code>where()</code>方法可以传入<code>image_url</code>,<code>image_file</code>,<code>image_base64</code>)：</p>
+<li><p>手势识别(<code>where()</code>方法可以传入<code>image_url</code>,<code>image_file</code>,<code>image_base64</code>)：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::FacePlus($config)-&gt;body-&gt;select(<span class="string">'gesture'</span>)-&gt;where([<span class="string">'image_url'</span> =&gt; <span class="string">'http://open.youtu.qq.com/app/img/experience/face_img/face_06.jpg'</span>, <span class="string">'return_attributes'</span> =&gt; <span class="string">'skinstatus'</span>])-&gt;get();</div></pre></td></tr></table></figure>
 </li>
-<li><p>一行代码驾驶证识别(<code>where()</code>方法可以传入<code>image_url</code>,<code>image_file</code>,<code>image_base64</code>)：</p>
+<li><p>驾驶证识别(<code>where()</code>方法可以传入<code>image_url</code>,<code>image_file</code>,<code>image_base64</code>)：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::FacePlus(<span class="keyword">$this</span>-&gt;config)-&gt;ocr-&gt;select(<span class="string">'ocrdriverlicense'</span>)-&gt;where([<span class="string">'image_url'</span> =&gt; <span class="string">'http://open.youtu.qq.com/app/img/experience/char_general/ocr_jsz_01.jpg'</span>])-&gt;get();</div></pre></td></tr></table></figure>
 </li>
-<li><p>一行代码识别图片场景和图片主体(<code>where()</code>方法可以传入<code>image_url</code>,<code>image_file</code>,<code>image_base64</code>)：</p>
+<li><p>识别图片场景和图片主体(<code>where()</code>方法可以传入<code>image_url</code>,<code>image_file</code>,<code>image_base64</code>)：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Entry::FacePlus(<span class="keyword">$this</span>-&gt;config)-&gt;image-&gt;select(<span class="string">'detectsceneandobject'</span>)-&gt;where([<span class="string">'image_base64'</span> =&gt; base64_encode(file_get_contents(<span class="keyword">__DIR__</span> . <span class="string">'/../../file/cup.jpg'</span>))])-&gt;get();</div></pre></td></tr></table></figure>
 </li>
 </ol>
