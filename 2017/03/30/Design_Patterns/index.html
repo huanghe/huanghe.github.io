@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>从设计模式到代码架构 | hahaxixi blog</title>
+  <meta name="author" content="hahaxixi">
+  
+  <meta name="description" content="AI Data">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="从设计模式到代码架构"/>
+  <meta property="og:site_name" content="hahaxixi blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="hahaxixi blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	ga('create', '[object Object]', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">hahaxixi blog</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="//">Home</a></li>
+    
+      <li><a href="//archives/">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-03-30T15:27:49.000Z"><a href="/2017/03/30/Design_Patterns/">2017-03-30</a></time>
+      
+      
+  
+    <h1 class="title">从设计模式到代码架构</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>设计模式，这是我听过最糟糕的翻译，这个名字对于程序员来说有点高高在上，难以理解，尤其是php，python，nodejs这些脚本语言的开发人员可能因为这个名字就忽视了设计模式的重要性。当然，除了名字以外，从更深层次，更具体来说，我觉得有三个原因：</p>
+<ol>
+<li>不用设计模式也可以完成工作，很多时候反而更简单快速；</li>
+<li>软件的世界快速迭代，很多设计模式有些过时了；</li>
+<li>如果没有理解透彻一些设计模式，可能还存在过度设计的问题，拿着把锤子，看到哪里都是钉子。</li>
+</ol>
+<p>但是用所谓‘简单’的方法去写的代码，业务一复杂之后，你就会发现改动之痛苦，改一个功能要看完所有流程，最后不得不重构，相信很多人都会有这个经历，这些就是设计模式解决的问题，但是精通了设计模式并不能解决所有问题，常常也要重构，设计模式绝对不是银弹。</p>
+<h3 id="设计模式的本质是什么"><a href="#设计模式的本质是什么" class="headerlink" title="设计模式的本质是什么"></a>设计模式的本质是什么</h3><p>设计模式其实就是架构，实现一个模块或者功能有几种方法，前面的人总结了他觉得最优的方法，然后抽象出来成为一种模式，这就是设计模式。本质上这和架构没有什么区别。</p>
+<h3 id="设计模式和架构的区别"><a href="#设计模式和架构的区别" class="headerlink" title="设计模式和架构的区别"></a>设计模式和架构的区别</h3><p>那架构和设计模式有没有什么区别呢，其实是有区别的，某种程度上可以这样理解：架构是从整个系统，更宏观的层面来总结的，而现在大家理解的设计模式，更多是从代码层面出发，或者框架的层面来总结的。但是这种区别并不是软件架构大师们主观的结果，这两个概念最开始是一个东西，但是随着软件复杂度的不断增加，演化成了两个概念。</p>
+<h3 id="更好的理解设计模式"><a href="#更好的理解设计模式" class="headerlink" title="更好的理解设计模式"></a>更好的理解设计模式</h3><p>我觉得对于设计模式的理解是把设计模式归并到架构的一部分，是架构的子集，重命名为<b>代码架构</b>，这样好理解很多。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+    <div id="utterances-container"></div>
+    <script src="https://utteranc.es/client.js"
+            repo="huanghe/huanghe.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+
+  
+
+</section>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+    <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:huanghe.github.io">
+  </form>
+</div>
+  
+    
+  
+    
+  
+
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2026 hahaxixi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

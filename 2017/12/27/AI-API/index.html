@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>AI开放平台集成API | hahaxixi blog</title>
+  <meta name="author" content="hahaxixi">
+  
+  <meta name="description" content="AI Data">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="AI开放平台集成API"/>
+  <meta property="og:site_name" content="hahaxixi blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="hahaxixi blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	ga('create', '[object Object]', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">hahaxixi blog</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="//">Home</a></li>
+    
+      <li><a href="//archives/">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-12-27T08:46:46.000Z"><a href="/2017/12/27/AI-API/">2017-12-27</a></time>
+      
+      
+  
+    <h1 class="title">AI开放平台集成API</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><h4 id="方法说明："><a href="#方法说明：" class="headerlink" title="方法说明："></a>方法说明：</h4><p>1.<code>select()</code>:选择识别的方法，参数为url的路由<br>2.<code>where()</code>:过滤条件，参数为请求的参数,同官方文档一致<br>3.<code>get()</code>:触发API请求，返回结果</p>
+<h2 id="百度"><a href="#百度" class="headerlink" title="百度"></a>百度</h2><h4 id="代码示例："><a href="#代码示例：" class="headerlink" title="代码示例："></a>代码示例：</h4><ol>
+<li>人脸识别(<code>image</code>参数无需<code>base64</code>)：<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Entry</span>::<span class="title function_ invoke__">Baidu</span>(<span class="variable">$config</span>)-&gt;face-&gt;<span class="title function_ invoke__">select</span>(<span class="string">&#x27;detect&#x27;</span>)-&gt;<span class="title function_ invoke__">where</span>([<span class="string">&#x27;image&#x27;</span> =&gt; <span class="title function_ invoke__">file_get_contents</span>(<span class="keyword">__DIR__</span> . <span class="string">&#x27;/file/face_detect.jpeg&#x27;</span>), <span class="string">&#x27;id_card_side&#x27;</span> =&gt; <span class="string">&#x27;front&#x27;</span>])-&gt;<span class="title function_ invoke__">get</span>();</span><br></pre></td></tr></table></figure></li>
+<li>通用文字识别(<code>image</code>参数无需<code>base64</code>)：<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Entry</span>::<span class="title function_ invoke__">Baidu</span>(<span class="variable">$this</span>-&gt;config)-&gt;ocr-&gt;<span class="title function_ invoke__">select</span>(<span class="string">&#x27;general_basic&#x27;</span>)-&gt;<span class="title function_ invoke__">where</span>([<span class="string">&#x27;url&#x27;</span> =&gt; <span class="string">&#x27;http://aip.bdstatic.com/portal/dist/1513863228374/ai_images/technology/ocr-general/general/demo-card-2.jpg&#x27;</span>])-&gt;<span class="title function_ invoke__">get</span>();</span><br></pre></td></tr></table></figure></li>
+<li>人体关键点识别(<code>image</code>参数无需<code>base64</code>)：<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Entry</span>::<span class="title function_ invoke__">Baidu</span>(<span class="variable">$config</span>)-&gt;body-&gt;<span class="title function_ invoke__">select</span>(<span class="string">&#x27;analysis&#x27;</span>)-&gt;<span class="title function_ invoke__">where</span>([<span class="string">&#x27;image&#x27;</span> =&gt; <span class="title function_ invoke__">file_get_contents</span>(<span class="keyword">__DIR__</span> . <span class="string">&#x27;/../../file/body1.jpg&#x27;</span>)])-&gt;<span class="title function_ invoke__">get</span>();</span><br></pre></td></tr></table></figure></li>
+<li>商品检索(<code>image</code>参数无需<code>base64</code>)：<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Entry</span>::<span class="title function_ invoke__">Baidu</span>(<span class="variable">$this</span>-&gt;config)-&gt;imageSearch-&gt;<span class="title function_ invoke__">select</span>(<span class="string">&#x27;v1/realtime_search/product/search&#x27;</span>)-&gt;<span class="title function_ invoke__">where</span>([<span class="string">&#x27;image&#x27;</span> =&gt; <span class="title function_ invoke__">file_get_contents</span>(<span class="keyword">__DIR__</span> . <span class="string">&#x27;/../../file/cup.jpg&#x27;</span>)])-&gt;<span class="title function_ invoke__">get</span>();</span><br></pre></td></tr></table></figure>
+<h4 id="官方文档："><a href="#官方文档：" class="headerlink" title="官方文档："></a>官方文档：</h4></li>
+</ol>
+<p><a href="http://ai.baidu.com/docs#/Begin/top">百度AI开放平台</a></p>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法:"></a>方法:</h4><p>1.人脸识别（<code>face</code>）<br>    * detect:人脸检测<br>    * match:人脸比对<br>    * verify:人脸认证<br>    * identify:人脸识别<br>    * multi-identify:M:N 识别<br>    * add:人脸库添加<br>    * update:人脸库更新<br>    * delete:人脸删除<br>    * get:用户信息查询<br>    * getlist:组列表查询<br>    * getusers:组内用户列表查询<br>    * adduser:组间复制用户<br>    * deleteuser:组内删除用户</p>
+<p>2.文字识别(<code>ocr</code>)<br>    * idcard:身份证<br>    * bankcard:银行卡<br>    * general:通用文字识别（含位置信息版）<br>    * general_basic:通用文字识别<br>    * webimage:网络图片文字识别<br>    * general_enhanced:通用文字识别<br>    * driving_license:驾驶证识别<br>    * vehicle_license:行驶证识别<br>    * license_plate:车牌识别<br>    * accurate:通用文字识别（含位置高精度版）<br>    * accurate_basic:通用文字识别（高精度版）<br>    * receipt:通用票据识别<br>    * business_license:营业执照识别<br>3.人体识别(<code>body</code>)<br>    * analysis:人体关键点识别<br>    * attr:人体属性识别<br>    * num:人流量统计<br>4.图片搜索(<code>imageSearch</code>)<br>    * realtime_search/same_hq/add:相同图检索—入库<br>    * realtime_search/same_hq/search:相同图检索—检索<br>    * realtime_search/same_hq/delete:相同图检索—删除<br>    * realtime_search/same_hq/update:相同图检索—更新<br>    * v1/realtime_search/similar/add:相似图检索—入库<br>    * v1/realtime_search/similar/search:相似图检索—检索<br>    * v1/realtime_search/similar/delete:相似图检索—删除<br>    * v1/realtime_search/similar/update:相似图检索—更新<br>    * v1/realtime_search/product/add:商品—入库<br>    * v1/realtime_search/product/search:商品—检索<br>    * v1/realtime_search/product/delete:商品—删除<br>    * v1/realtime_search/product/update:商品—更新</p>
+<h2 id="腾讯优图"><a href="#腾讯优图" class="headerlink" title="腾讯优图"></a>腾讯优图</h2><h4 id="代码示例：-1"><a href="#代码示例：-1" class="headerlink" title="代码示例："></a>代码示例：</h4><ol>
+<li>人脸检测(<code>where()</code>方法可以传入<code>url</code>或者<code>image</code>)<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Entry</span>::<span class="title function_ invoke__">Youtu</span>(<span class="variable">$config</span>)-&gt;face-&gt;<span class="title function_ invoke__">select</span>(<span class="string">&#x27;detectface&#x27;</span>)-&gt;<span class="title function_ invoke__">where</span>([<span class="string">&#x27;image&#x27;</span> =&gt; <span class="keyword">__DIR__</span> . <span class="string">&#x27;/../../file/face_01.jpg&#x27;</span>, <span class="string">&#x27;mode&#x27;</span> =&gt; <span class="number">1</span>])-&gt;<span class="title function_ invoke__">get</span>();</span><br></pre></td></tr></table></figure></li>
+<li>通用文字检测(<code>where()</code>方法可以传入<code>url</code>或者<code>image</code>)<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Entry</span>::<span class="title function_ invoke__">Youtu</span>(<span class="variable">$this</span>-&gt;config)-&gt;ocr-&gt;<span class="title function_ invoke__">select</span>(<span class="string">&#x27;generalocr&#x27;</span>)-&gt;<span class="title function_ invoke__">where</span>([<span class="string">&#x27;url&#x27;</span> =&gt; <span class="string">&#x27;http://open.youtu.qq.com/app/img/experience/char_general/ocr_common07.jpg&#x27;</span>])-&gt;<span class="title function_ invoke__">get</span>();</span><br></pre></td></tr></table></figure></li>
+<li>图像处理(默认调用人脸融合API)<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$opData</span> = [[<span class="string">&#x27;cmd&#x27;</span> =&gt; <span class="string">&#x27;doFaceMerge&#x27;</span>, <span class="string">&#x27;params&#x27;</span> =&gt; [<span class="string">&#x27;model_id&#x27;</span> =&gt; <span class="string">&#x27;cf_wzry_zhugeImage&#x27;</span>]]];</span><br><span class="line"><span class="comment">//$request = [&#x27;img_data&#x27; =&gt; __DIR__ . &#x27;/../../file/face_01.jpg&#x27;, &#x27;rsp_img_type&#x27; =&gt; &quot;url&quot;, &#x27;opdata&#x27; =&gt; $opdata];</span></span><br><span class="line"><span class="variable">$params</span> = [<span class="string">&#x27;img_data&#x27;</span> =&gt; <span class="string">&#x27;http://open.youtu.qq.com/app/img/experience/face_img/face_04.jpg&#x27;</span>, <span class="string">&#x27;rsp_img_type&#x27;</span> =&gt; <span class="string">&quot;url&quot;</span>, <span class="string">&#x27;opdata&#x27;</span> =&gt; <span class="variable">$opData</span>];</span><br><span class="line"><span class="variable">$result</span> = <span class="title class_">Entry</span>::<span class="title function_ invoke__">Youtu</span>(<span class="variable">$config</span>)-&gt;imageProcess-&gt;<span class="title function_ invoke__">select</span>()-&gt;<span class="title function_ invoke__">where</span>(<span class="variable">$params</span>)-&gt;<span class="title function_ invoke__">get</span>();<span class="comment">//人脸融合</span></span><br></pre></td></tr></table></figure>
+<h4 id="官方文档：-1"><a href="#官方文档：-1" class="headerlink" title="官方文档："></a>官方文档：</h4></li>
+</ol>
+<p><a href="https://open.youtu.qq.com/#/develop/api-summary">腾讯AI开放平台</a></p>
+<h4 id="方法-1"><a href="#方法-1" class="headerlink" title="方法:"></a>方法:</h4><p>1.人脸识别（<code>face</code>）<br>    * detectface:人脸检测<br>    * faceshape:五官定位<br>    * identify:人脸识别</p>
+<p>2.文字识别(<code>ocr</code>)<br>    * generalocr:通用<br>    * idcardocr:身份证<br>    * bcocr:名片<br>    * bizlicenseocr:营业执照<br>    * creditcardocr:银行卡<br>    * plateocr:车牌识别<br>    * driverlicenseocr:驾驶证(1)行驶证(0)识别<br>3.图像处理(<code>imageProcess</code>)<br>    * pitu_open_access_for_youtu.fcg:人脸融合，默认参数，可以不填</p>
+<h2 id="FACE"><a href="#FACE" class="headerlink" title="FACE++"></a>FACE++</h2><h4 id="代码示例：-2"><a href="#代码示例：-2" class="headerlink" title="代码示例："></a>代码示例：</h4><ol>
+<li>人脸识别(<code>where()</code>方法可以传入<code>image_url</code>,<code>image_file</code>,<code>image_base64</code>)：<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Entry</span>::<span class="title function_ invoke__">FacePlus</span>(<span class="variable">$this</span>-&gt;config)-&gt;face-&gt;<span class="title function_ invoke__">select</span>(<span class="string">&#x27;detect&#x27;</span>)-&gt;<span class="title function_ invoke__">where</span>([<span class="string">&#x27;image_file&#x27;</span> =&gt; <span class="keyword">__DIR__</span> . <span class="string">&#x27;/../../file/face_01.jpg&#x27;</span>, <span class="string">&#x27;return_attributes&#x27;</span> =&gt; <span class="string">&#x27;skinstatus&#x27;</span>])-&gt;<span class="title function_ invoke__">get</span>();</span><br></pre></td></tr></table></figure></li>
+<li>手势识别(<code>where()</code>方法可以传入<code>image_url</code>,<code>image_file</code>,<code>image_base64</code>)：<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Entry</span>::<span class="title function_ invoke__">FacePlus</span>(<span class="variable">$config</span>)-&gt;body-&gt;<span class="title function_ invoke__">select</span>(<span class="string">&#x27;gesture&#x27;</span>)-&gt;<span class="title function_ invoke__">where</span>([<span class="string">&#x27;image_url&#x27;</span> =&gt; <span class="string">&#x27;http://open.youtu.qq.com/app/img/experience/face_img/face_06.jpg&#x27;</span>, <span class="string">&#x27;return_attributes&#x27;</span> =&gt; <span class="string">&#x27;skinstatus&#x27;</span>])-&gt;<span class="title function_ invoke__">get</span>();</span><br></pre></td></tr></table></figure></li>
+<li>驾驶证识别(<code>where()</code>方法可以传入<code>image_url</code>,<code>image_file</code>,<code>image_base64</code>)：<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Entry</span>::<span class="title function_ invoke__">FacePlus</span>(<span class="variable">$this</span>-&gt;config)-&gt;ocr-&gt;<span class="title function_ invoke__">select</span>(<span class="string">&#x27;ocrdriverlicense&#x27;</span>)-&gt;<span class="title function_ invoke__">where</span>([<span class="string">&#x27;image_url&#x27;</span> =&gt; <span class="string">&#x27;http://open.youtu.qq.com/app/img/experience/char_general/ocr_jsz_01.jpg&#x27;</span>])-&gt;<span class="title function_ invoke__">get</span>();</span><br></pre></td></tr></table></figure></li>
+<li>识别图片场景和图片主体(<code>where()</code>方法可以传入<code>image_url</code>,<code>image_file</code>,<code>image_base64</code>)：<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Entry</span>::<span class="title function_ invoke__">FacePlus</span>(<span class="variable">$this</span>-&gt;config)-&gt;image-&gt;<span class="title function_ invoke__">select</span>(<span class="string">&#x27;detectsceneandobject&#x27;</span>)-&gt;<span class="title function_ invoke__">where</span>([<span class="string">&#x27;image_base64&#x27;</span> =&gt; <span class="title function_ invoke__">base64_encode</span>(<span class="title function_ invoke__">file_get_contents</span>(<span class="keyword">__DIR__</span> . <span class="string">&#x27;/../../file/cup.jpg&#x27;</span>))])-&gt;<span class="title function_ invoke__">get</span>();</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="官方文档：-2"><a href="#官方文档：-2" class="headerlink" title="官方文档："></a>官方文档：</h4><p><a href="https://console.faceplusplus.com.cn/documents/4887579">FACE++AI开放平台</a></p>
+<h4 id="方法-2"><a href="#方法-2" class="headerlink" title="方法:"></a>方法:</h4><p>1.人脸识别（<code>face</code>）<br>    * detect:人脸检测和人脸分析<br>    * compare:两个人脸进行比对<br>    * search:在一个已有的 FaceSet 中找出与目标人脸最相似的一张或多张人脸<br>    * create:创建一个人脸的集合 FaceSet<br>    * addface:为一个已经创建的 FaceSet 添加人脸标识 face_token<br>    * removeface:移除一个FaceSet中的某些或者全部face_token<br>    * update:更新一个人脸集合的属性<br>    * getdetail:获取一个 FaceSet 的所有信息<br>    * delete:删除一个人脸集合<br>    * getfacesets:获取某一 API Key 下的 FaceSet 列表及其 faceset_token、outer_id、display_name 和 tags 等信息<br>2.人体识别（<code>body</code>）<br>    * detect:人体检测和人体属性分析<br>    * segment:识别传入图片中人体的完整轮廓，进行人形抠像<br>    * gesture:手势识别<br>3.证件识别(<code>ocr</code>)<br>    * ocridcard:身份证<br>    * ocrdriverlicense:驾驶证<br>    * ocrvehiclelicense:行驶证<br>    * ocrbankcard:银行卡<br>4.图像识别(<code>image</code>)<br>    * detectsceneandobject:图片分析，识别图片场景和图片主体<br>    * recognizetext:图片分析，找出图片中出现的文字信息<br>    * general:通用文字识别（含位置信息版）<br>    * mergeface:人脸融合</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+    <div id="utterances-container"></div>
+    <script src="https://utteranc.es/client.js"
+            repo="huanghe/huanghe.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+
+  
+
+</section>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+    <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:huanghe.github.io">
+  </form>
+</div>
+  
+    
+  
+    
+  
+
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2026 hahaxixi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

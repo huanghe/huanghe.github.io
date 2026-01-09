@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MVC从多层模型开始 | hahaxixi blog</title>
+  <meta name="author" content="hahaxixi">
+  
+  <meta name="description" content="AI Data">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="MVC从多层模型开始"/>
+  <meta property="og:site_name" content="hahaxixi blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="hahaxixi blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	ga('create', '[object Object]', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">hahaxixi blog</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="//">Home</a></li>
+    
+      <li><a href="//archives/">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-03-03T01:38:48.000Z"><a href="/2017/03/03/MVC01/">2017-03-03</a></time>
+      
+      
+  
+    <h1 class="title">MVC从多层模型开始</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>如果你的控制层比模型层更大，产品同学找你改个功能很费劲，一改就来bug的时候，你可以考虑用多层模型解耦你的业务。</p>
+<h3 id="MVC功能定位"><a href="#MVC功能定位" class="headerlink" title="MVC功能定位"></a>MVC功能定位</h3><ol>
+<li> 模型(Model)应当负责管理几乎所有涉及数据的事情，包含数据、<strong>业务逻辑</strong>，以及数据校验规则。</li>
+<li> 控制器(Controller)用来解释请求数据，使用相应的模型，并渲染相应的响应或视图，可以被看作是模型和视图之间的中间人处理动作和请求。</li>
+<li> Views包含用户界面元素，如文本、图片和表单，当然，现在流行前后端分离的架构中，这一层可能从后端同学那里剥离出去了。</li>
+</ol>
+<p>数据和业务逻辑放在模型层，控制器只是个中间人的角色，这样就保持了瘦控制器和胖模型。但是实际开发中，很多同学会将数据的校验和业务逻辑放在控制器层，变成了胖控制器，瘦模型，控制层的代码没有复用性可言，产品需求一改，重构又要开始了。所以如果仅仅把模型当作数据库表的映射，一张数据库表对应一个模型是远远不够的。</p>
+<h3 id="分层次设计模型"><a href="#分层次设计模型" class="headerlink" title="分层次设计模型"></a>分层次设计模型</h3><ol>
+<li>多层模型的本质原因是由于数据库和业务逻辑之间的差异性，比如关系型数据库中的数据都是存在表中，以一行行数据的形式进行存取的，而程序运行却是一个个对象，实现数据的过滤，数据的处理等业务逻辑，一个对象的数据一般都对应了多张表。如果把业务处理逻辑和数据存取逻辑完全混杂在一块，甚至比把业务逻辑放在控制器里更难维护。</li>
+<li>模型的层级：<ul>
+<li>一层应该是每个模型映射一张数据表，比如一篇文章对应一个文章表，文章分类对应一个分类表，这里就是两个模型，想必大多数同学都是这样设计模型的，这里就不多说了,我这里把这个成为A层模型。</li>
+<li>一些可以复用的业务逻辑块可以封装成模型，供控制器或者模型调用，比如页面的搜索功能，可以继承最相关的A层模型，然后独立成模型，供不同页面都要这个查询功能的控制器调用。</li>
+<li>每个表单或者API需要独立的模型，这里面包含了这个表单或者API的数据校验和不可复用的业务逻辑，这个比较关键，也是本文的重点。比如注册表单或者API，需要独立的注册模型，这里面就包含了账号，验证码各种的校验，校验通过之后注册的逻辑，注册之后用户表需要添加一条数据，用户详情表也需要添加一条数据，这就对应了2个A模型，这些都只是注册特有的逻辑，独立出来做成单独的模型，这样业务修改需求主要修改这里，简单清晰。</li>
+</ul>
+</li>
+</ol>
+<h3 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h3><p>随着业务的发展，仅仅MVC这样的分层划分已经不能满足需求了，但更强大的架构本质都是抽象出更多的层级，毕竟计算机中的所有问题，都可以通过向上抽象封装一层来解决，这超过本文的讨论范围。 </p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+    <div id="utterances-container"></div>
+    <script src="https://utteranc.es/client.js"
+            repo="huanghe/huanghe.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+
+  
+
+</section>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+    <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:huanghe.github.io">
+  </form>
+</div>
+  
+    
+  
+    
+  
+
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2026 hahaxixi
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
