@@ -1,4 +1,4 @@
-# From Beginner to Server: A Programmer’s Record of Vipassana in China (English)
+# From Beginner to Server: A Programmer’s Record of Vipassana in China 
 
 *Language: English*  
 *Last updated: 2026-01-09*  
