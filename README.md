@@ -1,4 +1,4 @@
-# 中文文章 / 英文文章
+# 中文文章 / English article
 > 中文为原文；英文为译文
 > Chinese is the source; English is a translation.
 
